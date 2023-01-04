@@ -1,8 +1,11 @@
 package com.j2k.worldbox;
 
+import com.j2k.worldbox.block.ModBlocks;
+import com.j2k.worldbox.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -24,6 +27,12 @@ public class WorldBoxMod
     private static final Logger LOGGER = LogManager.getLogger();
 
     public WorldBoxMod() {
+        // Register the setup method for modloading
+        IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
+        ModItems.register(eventBus);
+        ModBlocks.register(eventBus);
+
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
