@@ -9,7 +9,7 @@ public class ModItemGroup {
 
         @Override
         public ItemStack createIcon() {
-            return null;
+            return new ItemStack(ModItems.CIVILIAN_SPAWN_EGG.get());
         }
     };
 }
