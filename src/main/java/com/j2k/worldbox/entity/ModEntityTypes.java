@@ -15,7 +15,8 @@ public class ModEntityTypes {
             = DeferredRegister.create(ForgeRegistries.ENTITIES, WorldBoxMod.MOD_ID);
 
     public static final RegistryObject<EntityType<CivilianEntity>> CIVILIAN =
-            ENTITY_TYPES.register("civilian", () -> EntityType.Builder.create(CivilianEntity::new, EntityClassification.CREATURE)
+            ENTITY_TYPES.register("civilian", () -> EntityType.Builder.create(CivilianEntity::new,
+                            EntityClassification.CREATURE).size(0.6F, 2F)
                     .build(new ResourceLocation(WorldBoxMod.MOD_ID, "civilian").toString()));
 
     public static void register(IEventBus eventBus) {
