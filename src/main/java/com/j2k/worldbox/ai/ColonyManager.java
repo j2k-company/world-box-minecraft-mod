@@ -1,19 +1,25 @@
 package com.j2k.worldbox.ai;
 
+import com.j2k.worldbox.buildings.Building;
 import com.j2k.worldbox.entity.custom.CivilianEntity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class ColonyManager {
 
-    private final ArrayList<CivilianEntity> colonists;
+    private final HashMap<String, CivilianEntity> colonists;
+    private final HashMap<String, Building> buildings;
 
-    public ColonyManager(ArrayList<CivilianEntity> colonists) {
+    public ColonyManager(HashMap<String, CivilianEntity> colonists, HashMap<String, Building> buildings) {
         this.colonists = colonists;
+        this.buildings = buildings;
     }
 
-    public List<CivilianEntity> getColonists() {
-        return new ArrayList<>(this.colonists);
+    public HashMap<String, CivilianEntity> getColonists() {
+        return new HashMap<>(this.colonists);
+    }
+
+    public HashMap<String, Building> getBuildings() {
+        return new HashMap<>(this.buildings);
     }
 }
