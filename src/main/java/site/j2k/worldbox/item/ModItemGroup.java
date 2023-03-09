@@ -1,4 +1,4 @@
-package com.j2k.worldbox.item;
+package site.j2k.worldbox.item;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;

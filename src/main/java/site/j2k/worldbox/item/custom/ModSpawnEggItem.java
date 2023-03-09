@@ -1,4 +1,4 @@
-package com.j2k.worldbox.item.custom;
+package site.j2k.worldbox.item.custom;
 
 import net.minecraft.block.DispenserBlock;
 import net.minecraft.dispenser.DefaultDispenseItemBehavior;

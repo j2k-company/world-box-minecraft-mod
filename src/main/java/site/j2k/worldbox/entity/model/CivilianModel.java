@@ -1,6 +1,6 @@
-package com.j2k.worldbox.entity.model;
+package site.j2k.worldbox.entity.model;
 
-import com.j2k.worldbox.entity.custom.CivilianEntity;
+import site.j2k.worldbox.entity.custom.CivilianEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.BipedModel;

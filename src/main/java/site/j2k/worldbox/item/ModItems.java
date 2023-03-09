@@ -1,8 +1,8 @@
-package com.j2k.worldbox.item;
+package site.j2k.worldbox.item;
 
-import com.j2k.worldbox.WorldBoxMod;
-import com.j2k.worldbox.entity.ModEntityTypes;
-import com.j2k.worldbox.item.custom.ModSpawnEggItem;
+import site.j2k.worldbox.WorldBoxMod;
+import site.j2k.worldbox.entity.ModEntityTypes;
+import site.j2k.worldbox.item.custom.ModSpawnEggItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;

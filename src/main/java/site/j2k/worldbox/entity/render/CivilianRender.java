@@ -1,8 +1,8 @@
-package com.j2k.worldbox.entity.render;
+package site.j2k.worldbox.entity.render;
 
-import com.j2k.worldbox.WorldBoxMod;
-import com.j2k.worldbox.entity.custom.CivilianEntity;
-import com.j2k.worldbox.entity.model.CivilianModel;
+import site.j2k.worldbox.WorldBoxMod;
+import site.j2k.worldbox.entity.custom.CivilianEntity;
+import site.j2k.worldbox.entity.model.CivilianModel;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;

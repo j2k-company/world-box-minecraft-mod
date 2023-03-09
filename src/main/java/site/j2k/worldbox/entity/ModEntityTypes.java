@@ -1,7 +1,7 @@
-package com.j2k.worldbox.entity;
+package site.j2k.worldbox.entity;
 
-import com.j2k.worldbox.WorldBoxMod;
-import com.j2k.worldbox.entity.custom.CivilianEntity;
+import site.j2k.worldbox.WorldBoxMod;
+import site.j2k.worldbox.entity.custom.CivilianEntity;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.util.ResourceLocation;

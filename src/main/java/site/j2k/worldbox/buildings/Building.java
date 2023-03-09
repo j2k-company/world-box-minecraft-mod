@@ -1,6 +1,6 @@
-package com.j2k.worldbox.buildings;
+package site.j2k.worldbox.buildings;
 
-import com.j2k.worldbox.entity.custom.CivilianEntity;
+import site.j2k.worldbox.entity.custom.CivilianEntity;
 import net.minecraft.util.math.BlockPos;
 
 import java.util.ArrayList;
@@ -24,8 +24,7 @@ public abstract class Building {
         this.builders.add(newBuilder);
     }
 
-    protected ArrayList<CivilianEntity> removeBuilders() {
+    public void removeBuilders() {
         this.builders.clear();
-        return null;
     }
 }

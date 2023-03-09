@@ -1,14 +1,14 @@
-package com.j2k.worldbox.events;
+package site.j2k.worldbox.events;
 
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import com.j2k.worldbox.WorldBoxMod;
-import com.j2k.worldbox.entity.ModEntityTypes;
-import com.j2k.worldbox.entity.custom.CivilianEntity;
-import com.j2k.worldbox.item.custom.ModSpawnEggItem;
+import site.j2k.worldbox.WorldBoxMod;
+import site.j2k.worldbox.entity.ModEntityTypes;
+import site.j2k.worldbox.entity.custom.CivilianEntity;
+import site.j2k.worldbox.item.custom.ModSpawnEggItem;
 
 @Mod.EventBusSubscriber(modid = WorldBoxMod.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEventBusEvents {

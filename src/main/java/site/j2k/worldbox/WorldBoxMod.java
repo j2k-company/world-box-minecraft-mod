@@ -1,9 +1,9 @@
-package com.j2k.worldbox;
+package site.j2k.worldbox;
 
-import com.j2k.worldbox.block.ModBlocks;
-import com.j2k.worldbox.entity.ModEntityTypes;
-import com.j2k.worldbox.entity.render.CivilianRender;
-import com.j2k.worldbox.item.ModItems;
+import site.j2k.worldbox.block.ModBlocks;
+import site.j2k.worldbox.entity.ModEntityTypes;
+import site.j2k.worldbox.entity.render.CivilianRender;
+import site.j2k.worldbox.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -26,6 +26,7 @@ import org.apache.logging.log4j.Logger;
 public class WorldBoxMod
 {
     public static  final String MOD_ID = "worldbox";
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -74,6 +75,9 @@ public class WorldBoxMod
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
+    }
+    public static void sendToLog(String message) {
+        LOGGER.info(message);
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD

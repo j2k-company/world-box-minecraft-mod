@@ -1,6 +1,6 @@
-package com.j2k.worldbox.entity.custom;
+package site.j2k.worldbox.entity.custom;
 
-import com.j2k.worldbox.ai.ColonyManager;
+import site.j2k.worldbox.ai.ColonyManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
@@ -23,6 +23,7 @@ public class CivilianEntity extends MobEntity {
         this.freedom = true;
     }
 
+    // FIXME: Remove hardcoded number
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
         return MobEntity.func_233666_p_()
                 .createMutableAttribute(Attributes.MAX_HEALTH, 20);
@@ -50,10 +51,10 @@ public class CivilianEntity extends MobEntity {
         super.tick();
         ticks++;
         if (ticks > 99) {
-            if (this.getRating() > 0.9 && this.isFreedom()) {
+            if (this.getRating() > 0.1 && this.isFreedom()) {
                 List<CivilianEntity> freedomVillagersAround =
                         getFreedomVillagersAround(ColonyManager.MINIMAL_COLONY_RADIUS);
-                new ColonyManager(null, null);
+                new ColonyManager(freedomVillagersAround, null);
             }
             ticks = 0;
         }
@@ -67,7 +68,7 @@ public class CivilianEntity extends MobEntity {
         return freedom;
     }
 
-    public void setFreedom(boolean freedom) {
-        this.freedom = freedom;
+    public void setFreedom() {
+        this.freedom = !this.freedom;
     }
 }
