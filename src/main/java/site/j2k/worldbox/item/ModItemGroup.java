@@ -1,4 +1,4 @@
-package com.j2k.worldbox.item;
+package site.j2k.worldbox.item;
 
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -9,7 +9,7 @@ public class ModItemGroup {
 
         @Override
         public ItemStack createIcon() {
-            return null;
+            return new ItemStack(ModItems.CIVILIAN_SPAWN_EGG.get());
         }
     };
 }

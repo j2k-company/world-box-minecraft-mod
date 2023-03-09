@@ -1,8 +1,8 @@
-package com.j2k.worldbox.block;
+package site.j2k.worldbox.block;
 
-import com.j2k.worldbox.WorldBoxMod;
-import com.j2k.worldbox.item.ModItemGroup;
-import com.j2k.worldbox.item.ModItems;
+import site.j2k.worldbox.WorldBoxMod;
+import site.j2k.worldbox.item.ModItemGroup;
+import site.j2k.worldbox.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -23,11 +23,9 @@ public class ModBlocks {
         return toReturn;
     }
 
-
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().group(ModItemGroup.MAIN_GROUP)));
     }
-
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

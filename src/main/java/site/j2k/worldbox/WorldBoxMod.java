@@ -1,13 +1,16 @@
-package com.j2k.worldbox;
+package site.j2k.worldbox;
 
-import com.j2k.worldbox.block.ModBlocks;
-import com.j2k.worldbox.item.ModItems;
+import site.j2k.worldbox.block.ModBlocks;
+import site.j2k.worldbox.entity.ModEntityTypes;
+import site.j2k.worldbox.entity.render.CivilianRender;
+import site.j2k.worldbox.item.ModItems;
 import net.minecraft.block.Block;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -23,24 +26,26 @@ import org.apache.logging.log4j.Logger;
 public class WorldBoxMod
 {
     public static  final String MOD_ID = "worldbox";
+
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
     public WorldBoxMod() {
-        // Register the setup method for modloading
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         ModItems.register(eventBus);
         ModBlocks.register(eventBus);
 
+        ModEntityTypes.register(eventBus);
+
         // Register the setup method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
+        eventBus.addListener(this::setup);
         // Register the enqueueIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::enqueueIMC);
+        eventBus.addListener(this::enqueueIMC);
         // Register the processIMC method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
+        eventBus.addListener(this::processIMC);
         // Register the doClientStuff method for modloading
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+        eventBus.addListener(this::doClientStuff);
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
@@ -53,6 +58,7 @@ public class WorldBoxMod
 
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
+        RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.CIVILIAN.get(), CivilianRender::new);
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event)
@@ -69,6 +75,9 @@ public class WorldBoxMod
     @SubscribeEvent
     public void onServerStarting(FMLServerStartingEvent event) {
         // do something when the server starts
+    }
+    public static void sendToLog(String message) {
+        LOGGER.info(message);
     }
 
     // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
