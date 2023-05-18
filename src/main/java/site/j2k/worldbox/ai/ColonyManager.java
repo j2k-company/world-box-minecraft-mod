@@ -2,7 +2,6 @@ package site.j2k.worldbox.ai;
 
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.IItemHandler;
 import site.j2k.worldbox.buildings.Building;
