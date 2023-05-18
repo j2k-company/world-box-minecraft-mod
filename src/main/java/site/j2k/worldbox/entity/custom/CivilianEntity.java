@@ -1,5 +1,12 @@
 package site.j2k.worldbox.entity.custom;
 
+import net.minecraft.inventory.IInventory;
+import net.minecraft.util.Direction;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.items.CapabilityItemHandler;
+import net.minecraftforge.items.IItemHandler;
+import net.minecraftforge.items.ItemStackHandler;
 import site.j2k.worldbox.ai.ColonyManager;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -8,19 +15,34 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class CivilianEntity extends MobEntity {
+public class CivilianEntity extends MobEntity{
 
+    private IItemHandler inventory;
     private final double rating;
     private boolean freedom;
     private static int ticks = 0;
 
     public CivilianEntity(EntityType<? extends MobEntity> type, World worldIn) {
-        super(type, worldIn);
-        this.rating = ThreadLocalRandom.current().nextDouble();
-        this.freedom = true;
+            super(type, worldIn);
+            this.rating = ThreadLocalRandom.current().nextDouble();
+            this.freedom = true;
+            this.inventory = new ItemStackHandler(9);
+    }
+
+    @Override
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public <T> LazyOptional<T> getCapability(Capability<T> capability, @Nullable Direction side) {
+        if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
+            return LazyOptional.of(() -> (T) this.inventory);
+        }
+        return super.getCapability(capability, side);
     }
 
     // FIXME: Remove hardcoded number
